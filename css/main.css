@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(209, 201, 201);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+
+.main-nav {
+    margin-block-start: 0;
+    padding-inline: 1.5em;
+    background-color: white;
+    border-block-end: 3px solid rgba(169, 169, 169, 0.768);
+}
+
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding-inline-start: 0;
+    align-items: center;
+    margin: 0;
+}
+
+.main-nav .logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-nav h1 {
+    font-size: 2em;
+    color: rgb(31, 31, 31);
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.main-nav h1:hover {
+    scale: 1.1;
+}
+
+.main-nav li span {
+    background: linear-gradient(90deg, rgb(161, 24, 0), rgb(227, 22, 4));
+    text-shadow: 1px 1px 2px red, 0 0 1em rgb(30, 26, 26), 0 0 0.2em rgb(68, 0, 0);
+    color: white;
+    border-radius: .4em;
+    margin-inline-start: .1em;
+    padding: .15em;
+}
+
+.main-nav .slogan {
+    padding-inline-start: .5em;
+    font-style: italic;
+    align-self: flex-end;
+    font-size: 1.5em;
+}
+
+.search-bar {
+    margin-inline-end: 30px;
+    position: relative;
+}
+
+input {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 2em;
+    font-size: 1.5em;
+    padding-inline-start: 0.6em;
+    height: 40px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.btn-search {
+    position: absolute;
+    right: -15px;
+    border: 1px solid gray;
+    border-radius: 0 2em 2em 0;
+    background-color: rgb(214, 213, 212);
+    color: black;
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.btn-search:hover {
+    background-color: rgb(227, 22, 4);
+    color: white;
+}
+
+/* LAYOUT */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1em;
+    padding: 2em;
+}
+
+/* VIDEO LIST */
+
+.video-list ul {
+    grid-column: 1;
+    list-style-type: none;
+    margin-block-start: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.video-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5em;
+    gap: 1em;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.video-list hr {
+    border: 1px solid rgba(61, 58, 58, 0.3);
+}
+
+.video-list hr:last-of-type {
+    border: none;
+}
+
+.video-list li img {
+    width: 1fr;
+    border-radius: 1em;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-title {
+    font-weight: bold;
+    font-size: 1rem;
+    width: 2fr;
+    margin-block: 0.1em;
+}
+
+.description .channel-title {
+    color: rgb(132, 128, 128);
+    margin-block: 0.3em;
+    font-size: .9rem;
+}
+
+.video-list li:hover {
+    scale: 1.03;
+    box-shadow: 0 0 3px 2px rgba(128, 128, 128, 0.615);
+    background-color: rgb(66, 64, 64);
+    color: rgb(189, 184, 184);
+    font-weight: bold;
+}
+
+
+/* VIDEO PLAYER */
+
+.video-player iframe {
+    grid-column: 2;
+    width: 100%;
+    border-radius: 0.5em;
+}
+
+/* WIKIPEDIA */
+
+.wikipedia {
+    padding: 3em;
+    background-color: rgb(67, 67, 67);
+    color: rgb(240, 226, 226);
+}
+
+.wikipedia p {
+    width: 70%;
+}
+
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 640px) {}
+
+@media screen and (max-width: 1100px) {
+    .main-content {
+        display: grid;
+        /* grid-auto-flow: dense; */
+        gap: 1em;
+        padding: 2em;
+        width: 100%;
+    }
+
+    .video-player {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        height: 500px;
+    }
+
+    .video-list {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: auto;
+    }
+    
+    .video-list li {
+        flex-direction: column;
+    }
+
+    .video-list li img{
+        width: 180px;
+    }
+
+    /* .video-list ul > *:nth-child(odd) {
+        grid-column: 1;
+    }
+
+    .video-list ul > *:nth-child(even) {
+        grid-column: 2;
+    } */
+}

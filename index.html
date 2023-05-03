@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ac0207dce0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>WikiTube</title>
+</head>
+
+<body onload="onInit()">
+    <nav class="main-nav">
+        <ul>
+            <li class="logo">
+                <h1 onclick="onInit()">Wiki<span>Tube</span></h1>
+                <p class="slogan">so watch and learn!</p>
+            </li>
+            <li>
+                <form class="search-bar" onsubmit="onSearchValue(event)">
+                    <input type="search" name="wiki-search" id="wiki-search" placeholder="search">
+                    <button id="wiki-search" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <main class="main-content">
+
+        <section class="video-list">
+            <ul></ul>
+        </section>
+        <section class="video-player">
+        </section>
+    </main>
+    <section class="wikipedia">
+    </section>
+
+    <script src="lib/axios.js"></script>
+
+    <script src="js/services/storage.js"></script>
+    <script src="js/services/service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
