@@ -4,7 +4,7 @@
 
 body {
     background-color: rgb(209, 201, 201);
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -13,18 +13,30 @@ body {
 
 .main-nav {
     margin-block-start: 0;
-    padding-inline: 1.5em;
     background-color: white;
-    border-block-end: 3px solid rgba(169, 169, 169, 0.768);
+    border-block-end: 2px solid rgba(169, 169, 169, 0.768);
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .main-nav ul {
     list-style-type: none;
+    padding: 0;
+    max-height: fit-content;
     display: flex;
     justify-content: space-between;
-    padding-inline-start: 0;
     align-items: center;
+    flex-wrap: wrap;
     margin: 0;
+}
+
+.main-nav ul li {
+    max-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
 }
 
 .main-nav .logo {
@@ -40,11 +52,11 @@ body {
 }
 
 .main-nav h1:hover {
-    scale: 1.1;
+    scale: 1.05;
 }
 
 .main-nav li span {
-    background: linear-gradient(90deg, rgb(161, 24, 0), rgb(227, 22, 4));
+    background: linear-gradient(-45deg, rgb(161, 24, 0), rgb(254, 75, 59));
     text-shadow: 1px 1px 2px red, 0 0 1em rgb(30, 26, 26), 0 0 0.2em rgb(68, 0, 0);
     color: white;
     border-radius: .4em;
@@ -57,11 +69,12 @@ body {
     font-style: italic;
     align-self: flex-end;
     font-size: 1.5em;
+    margin: 0;
 }
 
 .search-bar {
-    margin-inline-end: 30px;
     position: relative;
+    width: 100%;
 }
 
 input {
@@ -69,7 +82,8 @@ input {
     border: 1px solid gray;
     border-radius: 2em;
     font-size: 1.5em;
-    padding-inline-start: 0.6em;
+    padding-inline-start: .6em;
+    padding-inline-end: 2em;
     height: 40px;
 }
 
@@ -79,7 +93,7 @@ input:focus {
 
 .btn-search {
     position: absolute;
-    right: -15px;
+    right: 0;
     border: 1px solid gray;
     border-radius: 0 2em 2em 0;
     background-color: rgb(214, 213, 212);
@@ -102,6 +116,7 @@ input:focus {
     grid-template-columns: 1fr 2fr;
     gap: 1em;
     padding: 2em;
+    margin-block-start: 70px;
 }
 
 /* VIDEO LIST */
@@ -114,17 +129,16 @@ input:focus {
     flex-direction: column;
     gap: 1em;
     align-items: center;
-    padding: 0.5em;
+    padding: .5em;
 }
 
 .video-list li {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 0.5em;
+    padding: .5em;
     gap: 1em;
-    border-radius: 1em;
+    border-radius: 1.5em;
     cursor: pointer;
     transition: .2s ease-in;
 }
@@ -151,12 +165,12 @@ input:focus {
     font-weight: bold;
     font-size: 1rem;
     width: 2fr;
-    margin-block: 0.1em;
+    margin-block: .1em;
 }
 
 .description .channel-title {
     color: rgb(132, 128, 128);
-    margin-block: 0.3em;
+    margin-block: .3em;
     font-size: .9rem;
 }
 
@@ -165,7 +179,6 @@ input:focus {
     box-shadow: 0 0 3px 2px rgba(128, 128, 128, 0.615);
     background-color: rgb(66, 64, 64);
     color: rgb(189, 184, 184);
-    font-weight: bold;
 }
 
 
@@ -174,7 +187,7 @@ input:focus {
 .video-player iframe {
     grid-column: 2;
     width: 100%;
-    border-radius: 0.5em;
+    border-radius: .5em;
 }
 
 /* WIKIPEDIA */
@@ -192,15 +205,31 @@ input:focus {
 
 /* MEDIA QUERY */
 
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 500px) {
+    .main-nav ul {
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-block-start: 140px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-nav .slogan {
+        display: none;
+    }
+
+    input {
+        width: 250px;
+    }
+}
 
 @media screen and (max-width: 1100px) {
     .main-content {
         display: grid;
-        /* grid-auto-flow: dense; */
         gap: 1em;
         padding: 2em;
-        width: 100%;
     }
 
     .video-player {
@@ -211,25 +240,5 @@ input:focus {
 
     .video-list {
         grid-column: 1 / -1;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: auto;
     }
-    
-    .video-list li {
-        flex-direction: column;
-    }
-
-    .video-list li img{
-        width: 180px;
-    }
-
-    /* .video-list ul > *:nth-child(odd) {
-        grid-column: 1;
-    }
-
-    .video-list ul > *:nth-child(even) {
-        grid-column: 2;
-    } */
 }

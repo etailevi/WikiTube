@@ -21,7 +21,7 @@ function onSearchValue(ev) {
 }
 
 function renderVideos(details) {
-   
+
     renderVideoPlayer(details[0].id.videoId)
     const strHTML = details.map((detail) => {
         const vidUrl = detail.id.videoId
